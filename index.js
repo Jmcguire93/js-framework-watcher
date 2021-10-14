@@ -1,9 +1,7 @@
 /* global Chart, axios */
 
-const axios = require("axios").default;
-
 axios
-  .get("/user?ID=12345")
+  .get("https://api.github.com/repos/vuejs/vue")
   .then(function (response) {
     // handle success
     console.log(response);
