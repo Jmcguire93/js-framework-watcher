@@ -8,7 +8,10 @@ axios
   .get("https://api.github.com/repos/vuejs/vue")
   .then(function (response) {
     // handle success
-    console.log(response);
+    console.log(response.data);
+    stars.push(response.data.stargazers_count);
+    watchers.push(response.data.watchers_count);
+    forks.push(response.data.forks_count);
   })
   .catch(function (error) {
     // handle error
@@ -18,15 +21,19 @@ axios
     // always executed
   });
 
+console.log(stars, "Stars");
+console.log(watchers, "Watchers");
+console.log(forks, "Forks");
+
 var ctx = document.getElementById("myChart").getContext("2d");
 var myChart = new Chart(ctx, {
   type: "bar",
   data: {
-    labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+    labels: ["Stars", "Watchers", "Forks"],
     datasets: [
       {
-        label: "# of Votes",
-        data: [12, 19, 3, 5, 2, 3],
+        label: "# Stars, Watchers and Forks",
+        data: [stars, watchers, forks],
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
           "rgba(54, 162, 235, 0.2)",
