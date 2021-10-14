@@ -1,4 +1,4 @@
-/* global Chart */
+/* global Chart, axios */
 
 const axios = require("axios").default;
 
