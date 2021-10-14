@@ -1,5 +1,9 @@
 /* global Chart, axios */
 
+let stars = [];
+let watchers = [];
+let forks = [];
+
 axios
   .get("https://api.github.com/repos/vuejs/vue")
   .then(function (response) {
